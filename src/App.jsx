@@ -1,3 +1,6 @@
+// DEV COMPONENTS
+import { useAtomValue } from "jotai";
+
 // COMPONENTS
 import Navbar from "@components/Navbar.jsx";
 import AlarmSettings from "@components/AlarmSettings.jsx";
@@ -12,11 +15,10 @@ function App() {
 
   return (
     <>
-     <Navbar />
-     <main className={darkMode ? "dark" : null}>
-      </main>
+      <Navbar />
+      <main className={darkMode ? "dark" : null}></main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

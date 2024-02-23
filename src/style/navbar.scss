@@ -1,0 +1,25 @@
+// NAVBAR
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 0 10px;
+
+  .leftSide {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+
+    .darkModeBtn {
+      width: 40px;
+      height: 40px;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
