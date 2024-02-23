@@ -16,7 +16,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className={darkMode ? "dark" : null}></main>
+      <main className={darkMode ? "dark" : null}>
+        <ClockDial />
+      </main>
     </>
   );
 }
