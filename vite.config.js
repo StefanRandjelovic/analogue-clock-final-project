@@ -11,6 +11,7 @@ export default defineConfig({
       { find: "@styles", replacement: "/src/style/" },
       { find: "@images", replacement: "/src/images/" },
       { find: "@components", replacement: "/src/components" },
+      { find: "@jotai", replacement: "/src/jotai-global-state" },
     ],
   },
 });
