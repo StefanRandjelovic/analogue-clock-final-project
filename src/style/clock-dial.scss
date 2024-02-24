@@ -58,3 +58,114 @@
     }
   }
 }
+
+// DAY AND DATE ON A DIAL
+.dayDate {
+  width: 145px;
+  height: 50px;
+  border: 2px solid black;
+  position: absolute;
+  top: 270px;
+  left: 380px;
+  display: flex;
+  text-align: center;
+  font-size: 2.5rem;
+  border-radius: 5px;
+
+  .day {
+    flex: 2;
+    border-right: 2px solid black;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .date {
+    flex: 1;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+}
+
+// CONCENTRIC CIRCLE ON A DIAL
+.concentric {
+  width: 85%;
+  height: 85%;
+  border: 1px solid black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// CENTRAL POINT
+.centralPoint {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+// HOURS
+.hour {
+  font-size: 3rem;
+  font-weight: bolder;
+  position: absolute;
+  padding: 5px;
+  background-color: white;
+  border-radius: 50%;
+}
+.hour1 {
+  top: 45px;
+  left: 415px;
+}
+.hour2 {
+  top: 135px;
+  left: 500px;
+}
+.hour3 {
+  top: 265px;
+  left: 540px;
+}
+.hour4 {
+  top: 400px;
+  left: 495px;
+}
+.hour5 {
+  top: 485px;
+  left: 410px;
+}
+.hour6 {
+  top: 519px;
+  left: 280px;
+}
+.hour7 {
+  top: 490px;
+  left: 155px;
+}
+.hour8 {
+  top: 400px;
+  left: 55px;
+}
+.hour9 {
+  top: 270px;
+  left: 20px;
+}
+.hour10 {
+  top: 135px;
+  left: 50px;
+}
+.hour11 {
+  top: 40px;
+  left: 150px;
+}
+.hour12 {
+  top: 10px;
+  left: 270px;
+}
