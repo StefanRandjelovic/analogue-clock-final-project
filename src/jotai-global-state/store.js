@@ -4,4 +4,6 @@ import {atomWithStorage} from 'jotai/utils'
 // GLOBAL VARIABLES
 const darkModeStore = atomWithStorage("darkMode", false);
 
-export {darkModeStore}
+const fontStore = atomWithStorage("fontFamily", "Aldrich");
+
+export {darkModeStore, fontStore}
