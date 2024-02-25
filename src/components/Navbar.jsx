@@ -2,16 +2,21 @@
 import { useAtom } from "jotai";
 import { useState } from "react";
 
+// STYLES
+import "@styles/navbar.scss";
+
 // SVG
 import LightIcon from "@images/light_mode.svg";
 import DarkIcon from "@images/dark_mode.svg";
 import ChevronUp from "@images/chevron-up.svg";
 import ChevronDown from "@images/chevron-down.svg";
+import Speaker from "@images/speaker.svg";
+import SpeakerMute from "@images/speaker-mute.svg";
 
 // GLOBAL STATE
 import { darkModeStore, fontStore } from "@jotai/store.js";
 
-const Navbar = () => {
+const Navbar = ({ sound, setSound }) => {
   // GLOBAL STATE VARIABLES
   const [darkMode, setDarkMode] = useAtom(darkModeStore);
   const [fontStyle, setFontStyle] = useAtom(fontStore);
@@ -91,6 +96,13 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <img
+        className="audioPlayer"
+        onClick={() => setSound(!sound)}
+        src={sound ? Speaker : SpeakerMute}
+        alt="Turn clock ticking on or off"
+        title={sound ? "Turn audio off" : "Turn audio on"}
+      />
     </nav>
   );
 };
