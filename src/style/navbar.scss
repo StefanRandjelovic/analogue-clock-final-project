@@ -1,3 +1,17 @@
+// MIXIN
+@mixin HAndDBtn($color, $font-size) {
+  all: unset;
+  border: 1px solid;
+  border-color: $color;
+  padding: 5px;
+  font-size: $font-size;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  display: block;
+  border-radius: 10px;
+}
+
 // NAVBAR
 nav {
   display: flex;
@@ -21,5 +35,56 @@ nav {
         transform: scale(1.1);
       }
     }
+
+    .selectFontWrapper {
+      .font {
+        height: 100%;
+        @include HAndDBtn(black, 2rem);
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.03);
+        }
+      }
+
+      .fonts {
+        position: absolute;
+        top: 60px;
+        padding: 5px;
+        width: 300px;
+        background-color: white;
+        z-index: 100;
+        border: 1px solid black;
+        border-radius: 10px;
+        font-size: 1.5rem;
+
+        ul {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          li {
+            border-radius: 5px;
+            &:hover {
+              cursor: pointer;
+              background-color: rgb(230, 228, 228);
+            }
+          }
+        }
+      }
+    }
   }
 }
+
+// AUDIO BUTTON
+.audioPlayer {
+  width: 40px;
+  height: 40px;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
