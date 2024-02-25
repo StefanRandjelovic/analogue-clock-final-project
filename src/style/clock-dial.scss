@@ -28,6 +28,25 @@
   position: relative;
 }
 
+// ALARM WARRNING
+.alarmWarrning {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  color: red;
+  text-transform: uppercase;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  padding: 20px;
+  border-radius: 25px;
+  font-size: 5rem;
+  animation-name: alarm;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
 // DIAL HANDS
 .hourHandWrap {
   @include dialWrap(59.32%, 20.3%);
@@ -168,4 +187,14 @@
 .hour12 {
   top: 10px;
   left: 270px;
+}
+
+// ANIMATIONS
+@keyframes alarm {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
 }
