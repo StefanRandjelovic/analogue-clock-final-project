@@ -10,7 +10,7 @@ import "@styles/clock-dial.scss";
 // HELPERS AND GETTERS
 import { getDay } from "@helpers/helpers";
 
-const ClockDial = ({ hour, minute, seconds, day, date }) => {
+const ClockDial = ({ showAlarmWarrning, hour, minute, seconds, day, date }) => {
   // GLOBAL STATES
   const darkMode = useAtomValue(darkModeStore);
 
@@ -63,6 +63,8 @@ const ClockDial = ({ hour, minute, seconds, day, date }) => {
         </div>
         <div className="date">{date}</div>
       </div>
+
+      {showAlarmWarrning && <h1 className="alarmWarrning">!Alarm!</h1>}
 
       <div className="centralPoint"></div>
       <div className="hour hour1">1</div>
