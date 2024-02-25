@@ -1,7 +1,10 @@
 // DEV COMPONENTS
 import { useAtomValue } from "jotai";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+// AUDIO ASSETS
+import OldBell from "@audio/old-church-bell.mp3";
+import Ticking from "@audio/ticking-clock.mp3";
 
 // COMPONENTS
 import Navbar from "@components/Navbar.jsx";
@@ -24,7 +27,11 @@ function App() {
   const [day, setDay] = useState(time.getDay());
   const [date, setDate] = useState(time.getDate());
 
-  // SETTING TIME INTERVALS
+  // VARIOUS DEPENDENCY STATES
+  const [showAlarmWarrning, setShowAlarmWarrning] = useState(false);
+  const [sound, setSound] = useState(false);
+
+  // SETTING TIME INTERVALS AND SOUND PLAY
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds(time.getSeconds() * 6);
@@ -33,6 +40,9 @@ function App() {
       setDay(time.getDay());
       setDate(time.getDate());
     }, 1000);
+
+    sound && document.querySelector("#clockTicking").play();
+    !sound && document.querySelector("#clockTicking").pause();
 
     return () => clearInterval(interval);
   }, [seconds]);
@@ -51,16 +61,21 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar sound={sound} setSound={setSound} />
       <main className={darkMode ? "dark" : null}>
         <ClockDial
+          showAlarmWarrning={showAlarmWarrning}
           hour={hour}
           minute={minute}
           seconds={seconds}
           day={day}
           date={date}
         />
+
+        <AlarmSettings />
       </main>
+      <audio id="bell" src={OldBell}></audio>
+      <audio id="clockTicking" src={Ticking}></audio>
     </>
   );
 }
