@@ -30,6 +30,38 @@ function App() {
   // VARIOUS DEPENDENCY STATES
   const [showAlarmWarrning, setShowAlarmWarrning] = useState(false);
   const [sound, setSound] = useState(false);
+  const [inputedHours, setInputedHours] = useState("");
+  const [inputedMinutes, setInputedMinutes] = useState("");
+  const [alarm, setAlarm] = useState(false);
+  const [alarmTimeI, setAlarmTimeI] = useState("");
+
+  // ALARM INPUT VARIABLE
+  const alarmToCheck = new Date();
+  alarmToCheck.setHours(inputedHours && inputedHours.slice(0, 2));
+  alarmToCheck.setMinutes(inputedMinutes && inputedMinutes.slice(0, 2));
+  alarmToCheck.setSeconds(0);
+  alarmToCheck.setMilliseconds(0);
+
+  // ALARM FUNCTIONALITY
+  useEffect(() => {
+    if (alarm) {
+      if (alarmToCheck.getTime() < time.getTime()) {
+        alarmToCheck.setTime(alarmToCheck.getTime() + 86400000);
+      }
+
+      let alarmTime = alarmToCheck.getTime() - time.getTime();
+      setAlarmTimeI(alarmToCheck.getTime());
+
+      if (alarmTime > 86340001 && alarmTime < 86398000) {
+        document.querySelector("#bell").play();
+
+        setShowAlarmWarrning(true);
+        const timeout = setTimeout(() => {
+          setShowAlarmWarrning(false);
+        }, 60000);
+      }
+    }
+  }, [seconds]);
 
   // SETTING TIME INTERVALS AND SOUND PLAY
   useEffect(() => {
