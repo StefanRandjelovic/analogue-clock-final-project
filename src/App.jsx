@@ -104,7 +104,17 @@ function App() {
           date={date}
         />
 
-        <AlarmSettings />
+        <AlarmSettings
+          setInputedHours={setInputedHours}
+          setAlarm={setAlarm}
+          setInputedMinutes={setInputedMinutes}
+          inputedHours={inputedHours}
+          inputedMinutes={inputedMinutes}
+          alarm={alarm}
+          alarmTime={alarmTimeI}
+          time={time}
+          setShowAlarmWarrning={setShowAlarmWarrning}
+        />
       </main>
       <audio id="bell" src={OldBell}></audio>
       <audio id="clockTicking" src={Ticking}></audio>
