@@ -1,0 +1,79 @@
+// STYLE ASSETS IMPORTS
+@import "@styles/navbar.scss";
+
+// COLORS
+$Hour-minute-bckgrd: rgb(231, 229, 229);
+$Hour-minute-bckgrd-hover: rgb(212, 208, 208);
+
+// MIXINS
+@mixin hour-minute($opacity, $visibility) {
+  padding: 5px 0;
+  height: 180px;
+  width: 100px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  background-color: $Hour-minute-bckgrd;
+  opacity: $opacity;
+  visibility: $visibility;
+  position: absolute;
+  top: 90px;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+
+.Alarm-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  max-width: 600px;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+
+    .inputs {
+      display: flex;
+      width: 100%;
+      gap: 10px;
+
+      input[type="text"] {
+        all: unset;
+        border: 1px solid black;
+        text-align: center;
+        width: 50%;
+        padding: 5px;
+        font-size: 2rem;
+        border-radius: 10px;
+      }
+      #input-error {
+        border: 2px solid red;
+      }
+    }
+
+    .error {
+      margin: 10px 0;
+      text-align: center;
+      color: red;
+      font-size: 2rem;
+    }
+
+    button[type="submit"] {
+      @include HAndDBtn(black, 2rem);
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+      }
+    }
+  }
+}
