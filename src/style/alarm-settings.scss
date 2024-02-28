@@ -77,3 +77,109 @@ $Hour-minute-bckgrd-hover: rgb(212, 208, 208);
     }
   }
 }
+
+.inputTimeContainer {
+  display: flex;
+  gap: 20px;
+  position: relative;
+
+  .hoursWrapper,
+  .minutesWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+  }
+
+  h2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .hours,
+  .minutes {
+    @include hour-minute(0, hidden);
+
+    p[id*="m"],
+    p[id*="h"] {
+      &:hover {
+        background-color: $Hour-minute-bckgrd-hover;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .hoursVisible,
+  .minutesVisible {
+    @include hour-minute(1, visible);
+
+    p[id*="m"],
+    p[id*="h"] {
+      &:hover {
+        background-color: $Hour-minute-bckgrd-hover;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.prevAlarmDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+  button {
+    @include HAndDBtn(black, 1rem);
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.03);
+    }
+  }
+}
+
+.alarmInfo {
+  width: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  p {
+    font-size: 2rem;
+  }
+
+  button {
+    @include HAndDBtn(black, 2rem);
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.03);
+    }
+  }
+}
