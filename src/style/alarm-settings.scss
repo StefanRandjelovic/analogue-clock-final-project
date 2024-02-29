@@ -183,3 +183,56 @@ $Hour-minute-bckgrd-hover: rgb(212, 208, 208);
     }
   }
 }
+
+// DARK MODE
+.Alarm-settings.dark {
+  form {
+    .inputs {
+      input[type="text"] {
+        border: 1px solid orange;
+      }
+    }
+
+    button[type="submit"] {
+      @include HAndDBtn(orange, 2rem);
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  .inputTimeContainer {
+    .hoursWrapper,
+    .minutesWrapper {
+      h2 {
+        img {
+          filter: invert(79%) sepia(41%) saturate(5434%) hue-rotate(358deg)
+            brightness(100%) contrast(108%);
+        }
+      }
+    }
+  }
+
+  .prevAlarmDiv {
+    .dark {
+      @include HAndDBtn(orange, 1rem);
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+      }
+    }
+  }
+  .alarmInfo {
+    button {
+      @include HAndDBtn(orange, 2rem);
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.03);
+      }
+    }
+  }
+}

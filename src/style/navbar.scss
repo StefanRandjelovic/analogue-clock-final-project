@@ -88,3 +88,42 @@ nav {
   }
 }
 
+// DARK MODE
+.dark {
+  .leftSide {
+    .darkModeBtn {
+      filter: invert(79%) sepia(41%) saturate(5434%) hue-rotate(358deg)
+        brightness(100%) contrast(108%);
+    }
+    .selectFontWrapper {
+      .font {
+        @include HAndDBtn(orange, 2rem);
+
+        img {
+          filter: invert(79%) sepia(41%) saturate(5434%) hue-rotate(358deg)
+            brightness(100%) contrast(108%);
+        }
+      }
+
+      .fonts {
+        background-color: black;
+        border: 1px solid orange;
+
+        ul {
+          li {
+            background-color: black;
+
+            &:hover {
+              background-color: rgb(111, 72, 0);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .audioPlayer {
+    filter: invert(79%) sepia(41%) saturate(5434%) hue-rotate(358deg)
+      brightness(100%) contrast(108%);
+  }
+}
