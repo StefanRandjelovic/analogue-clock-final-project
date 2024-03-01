@@ -4,10 +4,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap");
 
-//font-family: "Libre Baskerville", serif;
-//font-family: "Stint Ultra Condensed", serif;
-//font-family: "Edu SA Beginner", cursive;
-//font-family: "Aldrich", sans-serif;
+// STYLE IMPORTS
+@import "@styles/alarm-settings.scss";
+@import "@styles/media-queries.scss";
 
 * {
   padding: 0;
