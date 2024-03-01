@@ -1,0 +1,417 @@
+// STYLE IMPORTS
+@import "@styles/clock-dial.scss";
+@import "@styles/alarm-settings.scss";
+
+// SCREENS WITH WIDTH LOWER THAN 700px
+@media only screen and (max-width: 700px) {
+  // DIAL - ClockDial.jsx
+  .mainBody {
+    width: 500px;
+    height: 500px;
+
+    .hourHandWrap {
+      .hourH {
+        @include dialHands(4px, 146px, black, 10);
+      }
+    }
+
+    .minuteHandWrap {
+      .minuteH {
+        @include dialHands(4px, 166px, black, 10);
+      }
+    }
+
+    .secondHandWrap {
+      .secondH {
+        @include dialHands(3px, 166px, red, 1);
+      }
+    }
+
+    .dayDate {
+      width: 110px;
+      height: 40px;
+      top: 225px;
+      left: 320px;
+      font-size: 2rem;
+    }
+
+    // ALARM WARRNING
+    .alarmWarrning {
+      font-size: 4rem;
+      z-index: 100;
+    }
+
+    .hour {
+      font-size: 2.5rem;
+    }
+    .hour1 {
+      top: 35px;
+      left: 335px;
+    }
+    .hour2 {
+      top: 115px;
+      left: 410px;
+    }
+    .hour3 {
+      top: 215px;
+      left: 440px;
+    }
+    .hour4 {
+      top: 320px;
+      left: 410px;
+    }
+    .hour5 {
+      top: 400px;
+      left: 330px;
+    }
+    .hour6 {
+      top: 429px;
+      left: 226px;
+    }
+    .hour7 {
+      top: 400px;
+      left: 125px;
+    }
+    .hour8 {
+      top: 325px;
+      left: 45px;
+    }
+    .hour9 {
+      top: 220px;
+      left: 20px;
+    }
+    .hour10 {
+      top: 115px;
+      left: 40px;
+    }
+    .hour11 {
+      top: 40px;
+      left: 120px;
+    }
+    .hour12 {
+      top: 10px;
+      left: 220px;
+    }
+  }
+
+  // DIAL DARK MODE - ClockDial.jsx
+  .mainBody.dark {
+    .hourHandWrap {
+      .hourHand {
+        .hourH {
+          @include dialHands(4px, 146px, orange, 10);
+        }
+      }
+    }
+
+    .minuteHandWrap {
+      .minuteHand {
+        .minuteH {
+          @include dialHands(4px, 166px, orange, 10);
+        }
+      }
+    }
+  }
+
+  // NAV
+  nav {
+    justify-content: space-around;
+    padding: 0;
+  }
+}
+
+// SCREENS WITH WIDTH LOWER THAN 520px
+@media only screen and (max-width: 520px) {
+  html {
+    font-size: 15px;
+  }
+  // DIAL - ClockDial.jsx
+  .mainBody {
+    width: 370px;
+    height: 370px;
+
+    .hourHandWrap {
+      .hourH {
+        @include dialHands(4px, 107px, black, 10);
+      }
+    }
+
+    .minuteHandWrap {
+      .minuteH {
+        @include dialHands(4px, 122px, black, 10);
+      }
+    }
+
+    .secondHandWrap {
+      .secondH {
+        @include dialHands(3px, 122px, red, 1);
+      }
+    }
+
+    .dayDate {
+      width: 100px;
+      height: 35px;
+      top: 162.5px;
+      left: 210px;
+      font-size: 1.7rem;
+    }
+
+    // ALARM WARRNING
+    .alarmWarrning {
+      font-size: 3.2rem;
+      z-index: 100;
+    }
+    .hour {
+      font-size: 2rem;
+    }
+    .hour1 {
+      top: 25px;
+      left: 245px;
+    }
+    .hour2 {
+      top: 80px;
+      left: 295px;
+    }
+    .hour3 {
+      top: 156px;
+      left: 320px;
+    }
+    .hour4 {
+      top: 230px;
+      left: 300px;
+    }
+    .hour5 {
+      top: 290px;
+      left: 242.5px;
+    }
+    .hour6 {
+      top: 310px;
+      left: 165px;
+    }
+    .hour7 {
+      top: 290px;
+      left: 90px;
+    }
+    .hour8 {
+      top: 232.5px;
+      left: 30px;
+    }
+    .hour9 {
+      top: 156px;
+      left: 12.5px;
+    }
+    .hour10 {
+      top: 82.5px;
+      left: 30px;
+    }
+    .hour11 {
+      top: 27.5px;
+      left: 90px;
+    }
+    .hour12 {
+      top: 5px;
+      left: 160px;
+    }
+  }
+
+  // DIAL DARK MODE - ClockDial.jsx
+  .mainBody.dark {
+    .hourHandWrap {
+      .hourHand {
+        .hourH {
+          @include dialHands(4px, 107px, orange, 10);
+        }
+      }
+    }
+
+    .minuteHandWrap {
+      .minuteHand {
+        .minuteH {
+          @include dialHands(4px, 122px, orange, 10);
+        }
+      }
+    }
+  }
+}
+
+// SCREENS WITH WIDTH LOWER THAN 400px
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 15px;
+  }
+  // DIAL - ClockDial.jsx
+  .mainBody {
+    width: 270px;
+    height: 270px;
+
+    .hourHandWrap {
+      .hourH {
+        @include dialHands(3px, 77px, black, 10);
+      }
+    }
+
+    .minuteHandWrap {
+      .minuteH {
+        @include dialHands(3px, 88px, black, 10);
+      }
+    }
+
+    .secondHandWrap {
+      .secondH {
+        @include dialHands(2.5px, 88px, red, 1);
+      }
+    }
+
+    .dayDate {
+      width: 75px;
+      height: 30px;
+      top: 115px;
+      left: 150px;
+      font-size: 1.3rem;
+    }
+
+    // CENTRAL POINT
+    .centralPoint {
+      width: 15px;
+      height: 15px;
+    }
+
+    // ALARM WARRNING
+    .alarmWarrning {
+      font-size: 2.8rem;
+      z-index: 100;
+    }
+
+    .hour {
+      font-size: 1.5rem;
+      padding: 3px;
+    }
+    .hour1 {
+      top: 20px;
+      left: 177.5px;
+    }
+    .hour2 {
+      top: 60px;
+      left: 215px;
+    }
+    .hour3 {
+      top: 112px;
+      left: 227.5px;
+    }
+    .hour4 {
+      top: 165px;
+      left: 212.5px;
+    }
+    .hour5 {
+      top: 210px;
+      left: 175px;
+    }
+    .hour6 {
+      top: 225px;
+      left: 120px;
+    }
+    .hour7 {
+      top: 210px;
+      left: 65px;
+    }
+    .hour8 {
+      top: 170px;
+      left: 22.5px;
+    }
+    .hour9 {
+      top: 115px;
+      left: 10px;
+    }
+    .hour10 {
+      top: 62.5px;
+      left: 20px;
+    }
+    .hour11 {
+      top: 20px;
+      left: 65px;
+    }
+    .hour12 {
+      top: 5px;
+      left: 115px;
+    }
+  }
+
+  // DIAL DARK MODE - ClockDial.jsx
+  .mainBody.dark {
+    .hourHandWrap {
+      .hourHand {
+        .hourH {
+          @include dialHands(4px, 77px, orange, 10);
+        }
+      }
+    }
+
+    .minuteHandWrap {
+      .minuteHand {
+        .minuteH {
+          @include dialHands(4px, 88px, orange, 10);
+        }
+      }
+    }
+  }
+
+  // ALARM SETTINGS - AlarmSettings.jsx
+  .Alarm-settings {
+    gap: 5px;
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    form {
+      gap: 5px;
+
+      .inputs {
+        input[type="text"] {
+          font-size: 1.2rem;
+        }
+      }
+
+      .error {
+        font-size: 1.2rem;
+        margin: 0;
+      }
+
+      button[type="submit"] {
+        @include HAndDBtn(black, 1.2rem);
+      }
+    }
+  }
+  .inputTimeContainer {
+    h2 {
+      font-size: 1.2rem;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .hoursVisible,
+    .minutesVisible {
+      width: 70px;
+      top: 70px;
+      p[id*="m"],
+      p[id*="h"] {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .alarmInfo {
+    margin-top: 5px;
+    gap: 5px;
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    button {
+      @include HAndDBtn(black, 1.2rem);
+    }
+  }
+}
