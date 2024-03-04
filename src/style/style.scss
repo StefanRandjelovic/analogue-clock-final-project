@@ -21,12 +21,12 @@ body {
   place-items: center;
 }
 
-#root {
+.doc-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 25px;
-  padding: 100px 0;
+  padding: 50px 0;
   margin: 0 auto;
 }
 
