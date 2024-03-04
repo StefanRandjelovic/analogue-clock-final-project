@@ -16,19 +16,19 @@ import SpeakerMute from "@images/speaker-mute.svg";
 // GLOBAL STATE
 import { darkModeStore, fontStore } from "@jotai/store.js";
 
-const Navbar = ({ sound, setSound }) => {
+const Navbar = ({ sound, setSound, setFontModal, fontModal }) => {
   // GLOBAL STATE VARIABLES
   const [darkMode, setDarkMode] = useAtom(darkModeStore);
   const [fontStyle, setFontStyle] = useAtom(fontStore);
-
-  // STATE VARIABLES
-  const [fontModal, setFontModal] = useState(false);
 
   return (
     <nav className={darkMode ? "dark" : null}>
       <div className="leftSide">
         <img
-          onClick={() => setDarkMode(!darkMode)}
+          onClick={(event) => {
+            event.stopPropagation();
+            setDarkMode(!darkMode);
+          }}
           title={darkMode ? "Toggle light mode" : "Toggle dark mode"}
           className="darkModeBtn"
           src={darkMode ? DarkIcon : LightIcon}
@@ -36,7 +36,10 @@ const Navbar = ({ sound, setSound }) => {
         />
         <div className="selectFontWrapper">
           <button
-            onClick={() => setFontModal(!fontModal)}
+            onClick={(event) => {
+              event.stopPropagation();
+              setFontModal(!fontModal);
+            }}
             title="Change font style"
             className="font"
           >
@@ -53,7 +56,8 @@ const Navbar = ({ sound, setSound }) => {
             <ul>
               <li
                 style={{ fontFamily: "Aldrich, sans-serif" }}
-                onClick={() => {
+                onClick={(event) => {
+                  event.stopPropagation();
                   setFontStyle("Aldrich");
                   setFontModal(!fontModal);
                 }}
@@ -62,7 +66,8 @@ const Navbar = ({ sound, setSound }) => {
               </li>
               <li
                 style={{ fontFamily: "Libre Baskerville, serif" }}
-                onClick={() => {
+                onClick={(event) => {
+                  event.stopPropagation();
                   setFontStyle("Libre Baskerville");
                   setFontModal(!fontModal);
                 }}
@@ -74,7 +79,8 @@ const Navbar = ({ sound, setSound }) => {
                   fontFamily: "Stint Ultra Condensed, serif",
                   letterSpacing: "3px",
                 }}
-                onClick={() => {
+                onClick={(event) => {
+                  event.stopPropagation();
                   setFontStyle("Stint Ultra Condensed");
                   setFontModal(!fontModal);
                 }}
@@ -85,7 +91,8 @@ const Navbar = ({ sound, setSound }) => {
                 style={{
                   fontFamily: "Edu SA Beginner, cursive",
                 }}
-                onClick={() => {
+                onClick={(event) => {
+                  event.stopPropagation();
                   setFontStyle("Edu SA Beginner");
                   setFontModal(!fontModal);
                 }}
@@ -98,7 +105,10 @@ const Navbar = ({ sound, setSound }) => {
       </div>
       <img
         className="audioPlayer"
-        onClick={() => setSound(!sound)}
+        onClick={(event) => {
+          event.stopPropagation();
+          setSound(!sound);
+        }}
         src={sound ? Speaker : SpeakerMute}
         alt="Turn clock ticking on or off"
         title={sound ? "Turn audio off" : "Turn audio on"}
