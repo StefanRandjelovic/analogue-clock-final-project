@@ -28,6 +28,10 @@ const AlarmSettings = ({
   alarmTime,
   time,
   setShowAlarmWarrning,
+  setShowMinuteModal,
+  showMinuteModal,
+  setShowHourModal,
+  showHourModal,
 }) => {
   // GLOBAL STATE VARIABLES
   const darkMode = useAtomValue(darkModeStore);
@@ -36,8 +40,6 @@ const AlarmSettings = ({
   // STATE VARIABLES
   const [hourInp, setHourInp] = useState("");
   const [minuteInp, setMinuteInp] = useState("");
-  const [showHourModal, setShowHourModal] = useState(false);
-  const [showMinuteModal, setShowMinuteModal] = useState(false);
   const [inputError, setInputError] = useState(false);
   const [inputErrorMessage, setInputErrorMessage] = useState("");
 
@@ -92,14 +94,20 @@ const AlarmSettings = ({
         </form>
         <div className="inputTimeContainer">
           <div className="hoursWrapper">
-            <h2 onClick={() => setShowHourModal(!showHourModal)}>
+            <h2
+              onClick={(event) => {
+                event.stopPropagation();
+                setShowHourModal(!showHourModal);
+              }}
+            >
               Select hours
               <img src={showHourModal ? ChevronUp : ChevronDown} />
             </h2>
             <div className={showHourModal ? "hoursVisible" : "hours"}>
               {hours.map((hour) => (
                 <p
-                  onClick={() => {
+                  onClick={(event) => {
+                    event.stopPropagation();
                     setHourInp(hour);
                     setShowHourModal(!showHourModal);
                     document
@@ -115,14 +123,20 @@ const AlarmSettings = ({
             </div>
           </div>
           <div className="minutesWrapper">
-            <h2 onClick={() => setShowMinuteModal(!showMinuteModal)}>
+            <h2
+              onClick={(event) => {
+                event.stopPropagation();
+                setShowMinuteModal(!showMinuteModal);
+              }}
+            >
               Select Minutes
               <img src={showMinuteModal ? ChevronUp : ChevronDown} />
             </h2>
             <div className={showMinuteModal ? "minutesVisible" : "minutes"}>
               {minutes.map((minute) => (
                 <p
-                  onClick={() => {
+                  onClick={(event) => {
+                    event.stopPropagation();
                     setMinuteInp(minute);
                     setShowMinuteModal(!showMinuteModal);
                     document
