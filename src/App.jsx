@@ -35,6 +35,11 @@ function App() {
   const [alarm, setAlarm] = useState(false);
   const [alarmTimeI, setAlarmTimeI] = useState("");
 
+  // STATE VARIABLES
+  const [showHourModal, setShowHourModal] = useState(false);
+  const [showMinuteModal, setShowMinuteModal] = useState(false);
+  const [fontModal, setFontModal] = useState(false);
+
   // ALARM INPUT VARIABLE
   const alarmToCheck = new Date();
   alarmToCheck.setHours(inputedHours && inputedHours.slice(0, 2));
@@ -76,12 +81,20 @@ function App() {
     sound && document.querySelector("#clockTicking").play();
     !sound && document.querySelector("#clockTicking").pause();
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      document.querySelector("#clockTicking").pause();
+    };
   }, [seconds]);
 
   // UPGRADING FONT STYLE
   useEffect(() => {
     document.documentElement.style.fontFamily = fontStyle;
+    if (fontStyle == "Stint Ultra Condensed") {
+      document.documentElement.style.fontSize = "20px";
+    } else {
+      document.documentElement.style.fontSize = "16px";
+    }
   }, [fontStyle]);
 
   // UPGRADING BACKGROUND COLOR
@@ -92,8 +105,20 @@ function App() {
   }, [darkMode]);
 
   return (
-    <>
-      <Navbar sound={sound} setSound={setSound} />
+    <div
+      className="doc-wrapper"
+      onClick={() => {
+        setShowHourModal(false);
+        setShowMinuteModal(false);
+        setFontModal(false);
+      }}
+    >
+      <Navbar
+        sound={sound}
+        setSound={setSound}
+        fontModal={fontModal}
+        setFontModal={setFontModal}
+      />
       <main className={darkMode ? "dark" : null}>
         <ClockDial
           showAlarmWarrning={showAlarmWarrning}
@@ -105,6 +130,10 @@ function App() {
         />
 
         <AlarmSettings
+          setShowMinuteModal={setShowMinuteModal}
+          showMinuteModal={showMinuteModal}
+          setShowHourModal={setShowHourModal}
+          showHourModal={showHourModal}
           setInputedHours={setInputedHours}
           setAlarm={setAlarm}
           setInputedMinutes={setInputedMinutes}
@@ -118,7 +147,7 @@ function App() {
       </main>
       <audio id="bell" src={OldBell}></audio>
       <audio id="clockTicking" src={Ticking}></audio>
-    </>
+    </div>
   );
 }
 
