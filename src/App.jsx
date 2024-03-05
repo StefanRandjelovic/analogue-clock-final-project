@@ -57,13 +57,11 @@ function App() {
       let alarmTime = alarmToCheck.getTime() - time.getTime();
       setAlarmTimeI(alarmToCheck.getTime());
 
-      if (alarmTime > 86340001 && alarmTime < 86398000) {
+      if (alarmTime > 86338001 && alarmTime < 86398000) {
         document.querySelector("#bell").play();
-
         setShowAlarmWarrning(true);
-        const timeout = setTimeout(() => {
-          setShowAlarmWarrning(false);
-        }, 60000);
+      } else {
+        setShowAlarmWarrning(false);
       }
     }
   }, [seconds]);
