@@ -41,3 +41,18 @@ main {
 .dark {
   color: orange;
 }
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid rgb(170, 170, 170);
+  background-color: rgb(170, 170, 170);
+  border-radius: 10px 0 0 10px;
+
+  &:active {
+    outline: 1px ridge red;
+    cursor: grab;
+  }
+}
