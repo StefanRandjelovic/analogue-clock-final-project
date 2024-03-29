@@ -94,4 +94,44 @@ const handleTimeInput = (
   }
 };
 
-export { getDay, getAlarm, handleTimeInput };
+// SETTING RENDERING OPTIONS
+const handleErrorMessage = (
+  hourInp,
+  minuteInp,
+  setInputErrorMessage,
+  setInputError
+) => {
+  if (hourInp === "" && minuteInp !== "") {
+    setInputErrorMessage("Enter hour value.");
+  } else if (hourInp !== "" && minuteInp === "") {
+    setInputErrorMessage("Enter minute value.");
+  } else if (hourInp !== "" && minuteInp !== "") {
+    setInputError(false);
+  }
+};
+
+// UPGRADING BACKGROUND COLOR
+const backgroundColor = (darkMode) => {
+  darkMode
+    ? (document.documentElement.style.backgroundColor = "black")
+    : (document.documentElement.style.backgroundColor = "white");
+};
+
+// UPGRADING FONT STYLE
+const upgradeFontStyle = (fontStyle) => {
+  document.documentElement.style.fontFamily = fontStyle;
+  if (fontStyle == "Stint Ultra Condensed") {
+    document.documentElement.style.fontSize = "20px";
+  } else {
+    document.documentElement.style.fontSize = "16px";
+  }
+};
+
+export {
+  getDay,
+  getAlarm,
+  handleTimeInput,
+  handleErrorMessage,
+  backgroundColor,
+  upgradeFontStyle,
+};
