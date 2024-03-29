@@ -16,7 +16,11 @@ import ChevronDown from "@images/chevron-down.svg";
 
 // HELPERS
 import { hours, minutes } from "@helpers/hours-and-minutes";
-import { getAlarm, handleTimeInput } from "@helpers/helpers";
+import {
+  getAlarm,
+  handleTimeInput,
+  handleErrorMessage,
+} from "@helpers/helpers";
 
 const AlarmSettings = ({
   setAlarm,
@@ -45,13 +49,7 @@ const AlarmSettings = ({
 
   // SETTING RENDERING OPTIONS
   useEffect(() => {
-    if (hourInp === "" && minuteInp !== "") {
-      setInputErrorMessage("Enter hour value.");
-    } else if (hourInp !== "" && minuteInp === "") {
-      setInputErrorMessage("Enter minute value.");
-    } else if (hourInp !== "" && minuteInp !== "") {
-      setInputError(false);
-    }
+    handleErrorMessage(hourInp, minuteInp, setInputErrorMessage, setInputError);
   }, [hourInp, minuteInp]);
 
   return (

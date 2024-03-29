@@ -14,6 +14,9 @@ import ClockDial from "@components/ClockDial.jsx";
 // GLOBAL STATE
 import { darkModeStore, fontStore } from "@jotai/store.js";
 
+// HELPER FUNCTIONS
+import { backgroundColor, upgradeFontStyle } from "@helpers/helpers";
+
 function App() {
   // GLOBAL STATE VARIABLES
   const darkMode = useAtomValue(darkModeStore);
@@ -87,19 +90,12 @@ function App() {
 
   // UPGRADING FONT STYLE
   useEffect(() => {
-    document.documentElement.style.fontFamily = fontStyle;
-    if (fontStyle == "Stint Ultra Condensed") {
-      document.documentElement.style.fontSize = "20px";
-    } else {
-      document.documentElement.style.fontSize = "16px";
-    }
+    upgradeFontStyle(fontStyle);
   }, [fontStyle]);
 
   // UPGRADING BACKGROUND COLOR
   useEffect(() => {
-    darkMode
-      ? (document.documentElement.style.backgroundColor = "black")
-      : (document.documentElement.style.backgroundColor = "white");
+    backgroundColor(darkMode);
   }, [darkMode]);
 
   return (
